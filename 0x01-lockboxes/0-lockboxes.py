@@ -13,13 +13,12 @@ def canUnlockAll(boxes):
     elif len(boxes) == 1:
         return True
 
-    boxcopy = boxes[:]
     unlocked = {0}
+    keys_available = boxes[0]
+    while keys_available:
+        key = keys_available.pop(0)
+        if key < len(boxes) and key not in unlocked:
+            unlocked.add(key)
+            keys_available.extend(boxes[key])
 
-    for keys in boxcopy:
-        for key in keys:
-            if key < len(boxcopy):
-                unlocked.add(key)
-        print(unlocked)
-        print(boxcopy)
-    return True if (len(unlocked) == len(boxcopy)) else False
+    return True if (len(unlocked) == len(boxes)) else False
