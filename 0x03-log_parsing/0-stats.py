@@ -3,7 +3,8 @@
 import sys
 import re
 
-regx = r'^([1-2]?\d?\d?\.?){4} - \[\d{4}(-\d{2}){2} (\d{2}:){2}\d+\.\d+\] "GET \/projects\/260 HTTP\/1.1" \d+ \d+$'
+regx = (r'^([1-2]?\d?\d?\.?){4} - \[\d{4}(-\d{2}){2} '
+        r'(\d{2}:){2}\d+\.\d+\] "GET \/projects\/260 HTTP\/1.1" \d+ \d+$')
 status_codes = {}
 total_size = 0
 line_count = 0
