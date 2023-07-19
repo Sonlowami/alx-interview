@@ -26,13 +26,15 @@ try:
             total_size += size
             line_count += 1
 
-        if line_count % 10 == 0:
+        if line_count % 10 == 0 and line_count != 0:
             print("File size: {}".format(total_size))
-            for k, v in status_codes.items():
-                print("{}: {}".format(k, v))
+            for k in sorted(status_codes.keys()):
+                print("{}: {}".format(k, status_codes.get(k)))
 
+except ValueError:
+    pass
 
 finally:
     print("File size: {}".format(total_size))
-    for k, v in status_codes.items():
-        print("{}: {}".format(k, v))
+    for k in sorted(status_codes.keys()):
+        print("{}: {}".format(k, status_codes.get(k)))
