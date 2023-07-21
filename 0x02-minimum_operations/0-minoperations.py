@@ -8,9 +8,9 @@ def minOperations(n: int) -> int:
     """
     if not isinstance(n, int):
         return 0
-    value: int = 1
-    paste_value: int = value
-    steps: int = 0
+    value = 1
+    paste_value = value
+    steps = 0
 
     while value < n:
         if n % value == 0:
