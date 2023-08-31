@@ -37,11 +37,12 @@ def island_perimeter(grid):
     of the island, and therefore adding their inverses in modulus 5 gives the
     water-facing size"""
     total = 0
-    for row in grid:
-        for col in row:
+    for rowIdx in range(len(grid)):
+        row = grid[rowIdx]
+        for colIdx in range(len(row)):
             grade = 4
-            if col == 1:
-                grade -= check_hor(grid, grid.index(row), row.index(col))
-                grade -= check_vert(grid, grid.index(row), row.index(col))
+            if row[colIdx] == 1:
+                grade -= check_hor(grid, rowIdx, colIdx)
+                grade -= check_vert(grid, rowIdx, colIdx)
                 total += grade
     return total
